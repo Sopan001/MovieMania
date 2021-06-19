@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieMania</title>
+
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/preloader.css">
+
+    <script src="./js/trendingTV.js" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/preloader.js" defer></script>
+</head>
+<body onload="load()">
+
+
+  <div class="loader" id="loading">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+  </div>
+
+  <header class="text-gray-600 body-font container">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">MovieMania</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a class="mr-5 hover:text-gray-900" href="./index.html">Home</a>
+        <a class="mr-5 hover:text-gray-900" href="./trendingMovies.html">Trending Movies</a>
+        <a class="mr-5 hover:text-gray-900" href="./trendingTV.html">Trending TV</a>
+        <a class="mr-5 hover:text-gray-900" href="./contactUs.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+        
+  <section class="text-gray-600 body-font" id="recommendationTitle">
+    <div class="container px-5 py-24 mx-auto ">
+      <div class="flex flex-col text-center w-full mb-11 mt-6">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Trending Web Series</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
+      </div>
+      <div class="flex flex-wrap -m-4 px-10 justify-center border-t" id="RecommendedArea">
+        
+        <!-- New Cards Append Here  -->
+  
+  
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

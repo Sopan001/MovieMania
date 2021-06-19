@@ -1,0 +1,18 @@
+.container
+{
+    padding: 16px;
+}
+nav a 
+{
+    cursor: pointer;
+}
+.hero
+{
+    padding: 100px;
+    height: 80vh;
+}
+
+#poster
+{
+    max-width: 300px;
+}
