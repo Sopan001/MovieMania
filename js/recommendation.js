@@ -3,7 +3,7 @@ const url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}`;
 const recommendedArea = document.getElementById("Recommended area");
 const movieTitle = document.getElementById("movieTitle");
 const movieOverview = document.getElementById("movieOverview");
-const popularity = document.getElementById("popularity");
+const moviePopularity = document.getElementById("popularity");
 const releaseDate = document.getElementById("releaseDate");
 const voteCount = document.getElementById("voteCount");
 const voteAverage = document.getElementById("voteAverage");
@@ -40,10 +40,13 @@ const errorMsg = async() =>{
 // Function To get Perfect Movie
 const getMovie = (data,movieName) =>{
     const{results} = data;
+    console.log(results);
     let resultData = results.sort((a, b) => (a.vote_count > b.vote_count) ? 1 : -1)
     let movieDetails = resultData[0];
+    console.log("In");
     resultData.forEach(result => {
         console.log(result.title == movieName);
+        console.log(result.title,result.popularity)
         if(result.title.toLowerCase() == movieName.toLowerCase())
         {
             movieDetails = result;
@@ -60,11 +63,12 @@ const movieInfoCard = async(movieName) =>{
     if(data.results.length != 0)
     {
         const {title,id,overview,popularity,vote_count,release_date,vote_average,poster_path} = getMovie(data,movieName);
+        console.log("In card",popularity);
         if(overview != 'No description.')
         {
             movieTitle.innerText = title;
             movieOverview.innerText = overview;
-            popularity.innerText = popularity;
+            moviePopularity.innerText = popularity;
             voteCount.innerText = vote_count;
             releaseDate.innerText = release_date;
             voteAverage.innerText = `${vote_average}/10`;
