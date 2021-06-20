@@ -40,13 +40,9 @@ const errorMsg = async() =>{
 // Function To get Perfect Movie
 const getMovie = (data,movieName) =>{
     const{results} = data;
-    console.log(results);
     let resultData = results.sort((a, b) => (a.vote_count > b.vote_count) ? 1 : -1)
     let movieDetails = resultData[0];
-    console.log("In");
     resultData.forEach(result => {
-        console.log(result.title == movieName);
-        console.log(result.title,result.popularity)
         if(result.title.toLowerCase() == movieName.toLowerCase())
         {
             movieDetails = result;
@@ -63,7 +59,6 @@ const movieInfoCard = async(movieName) =>{
     if(data.results.length != 0)
     {
         const {title,id,overview,popularity,vote_count,release_date,vote_average,poster_path} = getMovie(data,movieName);
-        console.log("In card",popularity);
         if(overview != 'No description.')
         {
             movieTitle.innerText = title;
@@ -141,13 +136,21 @@ const recommendation = async (id) =>{
     const recommendation = await recommendation_fetchData(id);
 
     const{results} = recommendation;
-
+    let imgSrc;
     if(results.length != 0)
     {
         results.forEach(result =>
             {
                 const {title,release_date,poster_path,vote_average,backdrop_path} = result;
-                recommendedCards(title,`https://image.tmdb.org/t/p/w300/${backdrop_path}`,release_date,vote_average);
+                if(backdrop_path)
+                {
+                    imgSrc = `https://image.tmdb.org/t/p/w300/${backdrop_path}`;
+                }
+                else
+                {
+                    imgSrc = `./images/not_available.png`;
+                }
+                recommendedCards(title,imgSrc,release_date,vote_average);
             });
     }
     else
