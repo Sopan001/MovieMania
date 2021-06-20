@@ -38,7 +38,7 @@ const errorMsg = async() =>{
 
 
 // Function To get Perfect Movie
-const getDetail = (data,movieName) =>{
+const getMovie = (data,movieName) =>{
     const{results} = data;
     let resultData = results.sort((a, b) => (a.vote_count > b.vote_count) ? 1 : -1)
     let movieDetails = resultData[0];
@@ -59,7 +59,7 @@ const movieInfoCard = async(movieName) =>{
     const data = await fetchData(movieName);
     if(data.results.length != 0)
     {
-        const {title,id,overview,popularity,vote_count,release_date,vote_average,poster_path} = getDetail(data,movieName);
+        const {title,id,overview,popularity,vote_count,release_date,vote_average,poster_path} = getMovie(data,movieName);
         if(overview != 'No description.')
         {
             movieTitle.innerText = title;
