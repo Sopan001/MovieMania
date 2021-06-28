@@ -40,14 +40,18 @@ const errorMsg = async() =>{
 // Function To get Perfect Movie
 const getMovie = (data,movieName) =>{
     const{results} = data;
-    let resultData = results.sort((a, b) => (a.vote_count > b.vote_count) ? 1 : -1)
-    let movieDetails = resultData[0];
-    resultData.forEach(result => {
-        if(result.title.toLowerCase() == movieName.toLowerCase())
+
+    movieName = movieName.toLowerCase()
+    let movieDetails = results[0];
+
+    for(let result of results)
+    {
+        if(result.title.toLowerCase() == movieName)
         {
             movieDetails = result;
+            break;
         }
-    });
+    }
 
     return movieDetails;
 }
